@@ -1,22 +1,22 @@
 package com.mycompany.dambasquet;
 
-import java.time.LocalDate;
+import javax.annotation.Generated;
+import java.util.Date;
+
 
 public class Equipo {
-    private static int numEquipo = 0;
     private int id;
     private String nombre;
     private String localidad;
-    private LocalDate creacion;
+    private Date creacion;
     private ListaJugadores listaJugadores;
 
     public Equipo() {
     }
 
     
-    public Equipo(String nombre, String localidad, LocalDate creacion) {
-        numEquipo++;
-        this.id = numEquipo;
+    public Equipo(int id, String nombre, String localidad, Date creacion) {
+        this.id = id;
         this.nombre = nombre;
         this.localidad = localidad;
         this.creacion = creacion;
@@ -30,11 +30,11 @@ public class Equipo {
     public void setListaJugadores(ListaJugadores listaJugadores) {
         this.listaJugadores = listaJugadores;
     }   
-    public LocalDate getCreacion() {
+    public Date getCreacion() {
         return creacion;
     }
 
-    public void setCreacion(LocalDate creacion) {
+    public void setCreacion(Date creacion) {
         this.creacion = creacion;
     }
 

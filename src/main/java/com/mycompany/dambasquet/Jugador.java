@@ -1,29 +1,29 @@
 package com.mycompany.dambasquet;
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 public class Jugador {
    
     private int id;
     private String nombre;
-    private LocalDate nacimiento;
+    private Date nacimiento;
     private int canastas;
     private int rebote;
     private int asistencias;
     private String posicion;
-    private static int contador = 0;
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, LocalDate nacimiento) {
-        contador++;
-        this.id = contador;
+    public Jugador(int id,String nombre, Date nacimiento, String posicion) {
+        this.id = id;
         this.nombre = nombre;
         this.nacimiento = nacimiento;
+        this.posicion = posicion;
     }
-    public Jugador(String nombre, LocalDate nacimiento, int canastas, int rebote, int asistencias, String posicion) {
-        this(nombre, nacimiento);
+    public Jugador(int id,String nombre, Date nacimiento, int canastas, int rebote, int asistencias, String posicion) {
+        this(id,nombre, nacimiento,posicion);
         this.canastas = canastas;
         this.rebote = rebote;
         this.asistencias = asistencias;
@@ -62,10 +62,10 @@ public class Jugador {
     }
 
 
-    public LocalDate getNacimiento() {
+    public Date getNacimiento() {
         return nacimiento;
     }
-    public void setNacimiento(LocalDate nacimiento) {
+    public void setNacimiento(Date nacimiento) {
         this.nacimiento = nacimiento;
     }
 

@@ -21,4 +21,8 @@ public class ListaEquipos {
         listaEquipo.add(e);
     }
 
+    public int tamaño(){
+        return listaEquipo.size();
+    }
+
 }

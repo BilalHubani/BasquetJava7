@@ -1,12 +1,19 @@
 package com.mycompany.dambasquet;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Basquet {
+    private static ListaEquipos listaEquipos;
+    private static Fichero ficheroEquipos;
     public static void main(String[] args) {
+        ficheroEquipos = new Fichero("basket.xml");
+        listaEquipos = (ListaEquipos) ficheroEquipos.leer();
 
+        if(listaEquipos == null){
+            listaEquipos = new ListaEquipos();
+        }
         int opcion = 0;
         int opcion2 = 0;
         int opcion3 = 0;
@@ -112,10 +119,66 @@ public class Basquet {
         System.out.println("5. Volver al menu anterior");
     }
     public static void altaEquipo(){
-
+        int id = listaEquipos.tamaño() +1;
+        String nombre = EntradaDatos.pedirCadena("Escribe el nombre del equipo");
+        String localidad = EntradaDatos.pedirCadena("Escribe la localidad del equipo");
+        Date creacion;
+        int dia = 0;
+        int mes = 0;
+        int ano = 0;
+        do {
+            dia = EntradaDatos.pedirEntero("Dia de nacimiento");
+        }while(dia<1 || dia > 31);
+        do {
+            mes = EntradaDatos.pedirEntero("Mes de nacimiento");
+        }while (mes<1 || mes>12);
+        do {
+            ano = EntradaDatos.pedirEntero("Año de nacimiento");
+        }while (ano<1 || ano>2016);
+        creacion = new Date(ano,mes,dia);
+        Equipo equipo = new Equipo(id, nombre,localidad,creacion);
+        listaEquipos.altaEquipo(equipo);
+        ficheroEquipos.grabar(listaEquipos);
+        System.out.println("Equipo dado de alta");
     }
     public static void altaJugador(){
-
+        int id = 1;
+        for (Equipo e: listaEquipos.getListaEquipo()) {
+            id = id + e.getListaJugadores().tamaño();
+        }
+        String nombreEquipo = EntradaDatos.pedirCadena("Escribe el nombre de tu equipo");
+        boolean existe = false;
+        Equipo equipo = null;
+        for (Equipo e: listaEquipos.getListaEquipo()){
+            if (nombreEquipo.equalsIgnoreCase(e.getNombre())){
+                existe = true;
+                equipo = e;
+            }
+        }
+        if (existe){
+            String nombre = EntradaDatos.pedirCadena("Introduce el nombre del jugador");
+            String posicion = EntradaDatos.pedirCadena("Introduce la posicion");
+            Date nacimiento;
+            int dia = 0;
+            int mes = 0;
+            int ano = 0;
+            do {
+                dia = EntradaDatos.pedirEntero("Dia de la creacion");
+            }while(dia<1 || dia > 31);
+            do {
+                mes = EntradaDatos.pedirEntero("Mes de la creacion");
+            }while (mes<1 || mes>12);
+            do {
+                ano = EntradaDatos.pedirEntero("Año de la creacion");
+            }while (ano<1 || ano>2016);
+            nacimiento = new Date(ano,mes,dia);
+            Jugador jugador = new Jugador(id,nombre,nacimiento,(int) Math.random()*30, (int) Math.random()*30,(int) Math.random()*30, posicion);
+            equipo.getListaJugadores().altaJugador(jugador);
+            ficheroEquipos.grabar(listaEquipos);
+            System.out.println("Jugador dado de alta");
+        }else {
+            System.out.println("El equipo introducido aun no ha sido registrado");
+        }
     }
     public static void consultaJugador1(){
 

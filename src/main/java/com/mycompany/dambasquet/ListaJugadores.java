@@ -21,6 +21,8 @@ public class ListaJugadores {
         listaJugadores.add(j);
     }
     
-    
+    public int tamaño(){
+        return listaJugadores.size();
+    }
 
 }
