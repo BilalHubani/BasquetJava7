@@ -17,6 +17,7 @@ public class Basquet {
         int opcion = 0;
         int opcion2 = 0;
         int opcion3 = 0;
+        String nombre;
         do {
             mostrarMenu();
             opcion = EntradaDatos.pedirEntero("Elige una opción: ");
@@ -33,25 +34,42 @@ public class Basquet {
                         opcion2 = EntradaDatos.pedirEntero("Elige una opción: ");
                         switch (opcion2){
                             case 1:
-                                consultaJugador1();
+                                nombre = EntradaDatos.pedirCadena("Escribe el nombre que quieres buscar: ");
+                                System.out.println(Consultas.buscarJugadorNombre(listaEquipos.getListaEquipo(), nombre));
                                 break;
                             case 2:
-                                consultaJugador2();
+                                int canastas = EntradaDatos.pedirEntero("Escribe el numero de canastas: ");
+                                System.out.println(Consultas.buscarJugadoresPorCanastas(listaEquipos.getListaEquipo(), canastas));
                                 break;
                             case 3:
-                                consultaJugador3();
+                                int amin = EntradaDatos.pedirEntero("Escribe el numero de asistencias minimas");
+                                int amax = EntradaDatos.pedirEntero("Escribe el numero de asistencias maximas");
+                                System.out.println(Consultas.buscarJugadoresEntreAsistencias(listaEquipos.getListaEquipo(),amin,amax));
                                 break;
                             case 4:
-                                consultaJugador4();
+                                nombre = EntradaDatos.pedirCadena("Escribe la posicion");
+                                System.out.println(Consultas.buscarJugadoresDeUnaPosicion(listaEquipos.getListaEquipo(),nombre));
                                 break;
                             case 5:
-                                consultaJugador5();
+                                Date creacion;
+                                int dia = 0;
+                                int mes = 0;
+                                int ano = 0;
+                                do {
+                                    dia = EntradaDatos.pedirEntero("Dia de nacimiento");
+                                }while(dia<1 || dia > 31);
+                                do {
+                                    mes = EntradaDatos.pedirEntero("Mes de nacimiento");
+                                }while (mes<1 || mes>12);
+                                do {
+                                    ano = EntradaDatos.pedirEntero("Año de nacimiento");
+                                }while (ano<1 || ano>2016);
+                                creacion = new Date(ano,mes,dia);
+                                System.out.println(Consultas.buscarJugadoresNacimiento(listaEquipos.getListaEquipo(),creacion));
                                 break;
                             case 6:
-                                consultaJugador6();
                                 break;
                             case 7:
-                                consultaJugador7();
                                 break;
                             case 8:
                                 System.out.println("Volviendo al menu anterior");
@@ -67,16 +85,21 @@ public class Basquet {
                         opcion3 = EntradaDatos.pedirEntero("Elige una opción: ");
                         switch (opcion3){
                             case 1:
-                                consultaEquipo1();
+                                nombre = EntradaDatos.pedirCadena("Escribe la localidad");
+                                System.out.println(Consultas.buscarEquipoLocalidad(listaEquipos.getListaEquipo(),nombre));
                                 break;
                             case 2:
-                                consultaEquipo2();
+                                nombre = EntradaDatos.pedirCadena("Escribe el nombre del equipo");
+                                System.out.println(Consultas.buscarJugadoresDeUnEquipo(listaEquipos.getListaEquipo(),nombre));
                                 break;
                             case 3:
-                                consultaEquipo3();
+                                nombre = EntradaDatos.pedirCadena("Escribe el nombre del equipo");
+                                String pos = EntradaDatos.pedirCadena("Escribe la posicion");
+                                System.out.println(Consultas.buscarJugadoresDeUnEquipoYPosicion(listaEquipos.getListaEquipo(),nombre,pos));
                                 break;
                             case 4:
-                                consultaEquipo4();
+                                nombre = EntradaDatos.pedirCadena("Escribe el nombre del equipo");
+                                System.out.println(Consultas.buscarJugadoresMaxCanastasEquipo(listaEquipos.getListaEquipo(),nombre));
                                 break;
                             case 5:
                                 System.out.println("Volviendo al menu anterior");
@@ -179,38 +202,5 @@ public class Basquet {
         }else {
             System.out.println("El equipo introducido aun no ha sido registrado");
         }
-    }
-    public static void consultaJugador1(){
-
-    }
-    public static void consultaJugador2(){
-
-    }
-    public static void consultaJugador3(){
-
-    }
-    public static void consultaJugador4(){
-
-    }
-    public static void consultaJugador5(){
-
-    }
-    public static void consultaJugador6(){
-
-    }
-    public static void consultaJugador7(){
-
-    }
-    public static void consultaEquipo1(){
-
-    }
-    public static void consultaEquipo2(){
-
-    }
-    public static void consultaEquipo3(){
-
-    }
-    public static void consultaEquipo4(){
-
     }
 }

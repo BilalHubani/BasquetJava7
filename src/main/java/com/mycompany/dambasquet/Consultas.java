@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Consultas {
-    public List<Jugador> buscarJugadorNombre(List<Equipo> equipos, String nombre){
+    public static List<Jugador> buscarJugadorNombre(List<Equipo> equipos, String nombre){
         List<Jugador> listaJugadores = new ArrayList<>();
         String nombrec;
         String nombrem;
