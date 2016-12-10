@@ -68,8 +68,12 @@ public class Basquet {
                                 System.out.println(Consultas.buscarJugadoresNacimiento(listaEquipos.getListaEquipo(),creacion));
                                 break;
                             case 6:
+                                nombre = EntradaDatos.pedirCadena("Escribe la posicion");
+                                Consultas.AVGCantastasAsistenciasRebotes(listaEquipos.getListaEquipo(),nombre);
                                 break;
                             case 7:
+                                nombre = EntradaDatos.pedirCadena("Escribe la posicion");
+                                Consultas.AVGMaxMinCantastasAsistenciasRebotes(listaEquipos.getListaEquipo(),nombre);
                                 break;
                             case 8:
                                 System.out.println("Volviendo al menu anterior");
