@@ -114,10 +114,10 @@ public class Consultas {
         return jugadoresNacimiento;
     }
     public static void AVGCantastasAsistenciasRebotes(List<Equipo> equipos, String posicion){
-        int totalCanastas=0;
-        int totalRebotes=0;
-        int totalAsistencias=0;
-        int contador = 0;
+        double totalCanastas=0;
+        double totalRebotes=0;
+        double totalAsistencias=0;
+        double contador = 0;
         for (Equipo e: equipos){
             for (Jugador j : e.getListaJugadores().getListaJugadores()){
                 if (j.getPosicion().equalsIgnoreCase(posicion)) {
@@ -128,15 +128,15 @@ public class Consultas {
                 }
             }
         }
-        System.out.println("La media de canastas es: "+(double)(totalCanastas/contador));
-        System.out.println("La media de asistencias es: "+(double)(totalAsistencias/contador));
-        System.out.println("La media de rebotes es: "+(double)(totalRebotes/contador));
+        System.out.println("La media de canastas es: "+(totalCanastas/contador));
+        System.out.println("La media de asistencias es: "+(totalAsistencias/contador));
+        System.out.println("La media de rebotes es: "+(totalRebotes/contador));
     }
     public static void AVGMaxMinCantastasAsistenciasRebotes(List<Equipo> equipos, String posicion){
-        int totalCanastas=0;
-        int totalRebotes=0;
-        int totalAsistencias=0;
-        int contador = 0;
+        double totalCanastas=0;
+        double totalRebotes=0;
+        double totalAsistencias=0;
+        double contador = 0;
         int maxCanastas = 0;
         int minCanastas = 30;
         int maxRebotes = 0;
@@ -166,13 +166,13 @@ public class Consultas {
             }
         }
         System.out.println("El maximo de canastas es: "+maxCanastas);
-        System.out.println("La media de canastas es: "+(double)(totalCanastas/contador));
+        System.out.println("La media de canastas es: "+(totalCanastas/contador));
         System.out.println("El minimo de canastas es: "+minCanastas);
         System.out.println("El maximo de asistencias es: "+maxAsistencias);
-        System.out.println("La media de asistencias es: "+(double)(totalAsistencias/contador));
+        System.out.println("La media de asistencias es: "+(totalAsistencias/contador));
         System.out.println("El minimo de asistencias es: "+minAsistencias);
         System.out.println("El maximo de rebotes es: "+maxRebotes);
-        System.out.println("La media de rebotes es: "+(double)(totalRebotes/contador));
+        System.out.println("La media de rebotes es: "+(totalRebotes/contador));
         System.out.println("El minimo de rebotes es: "+minRebotes);
     }
 }

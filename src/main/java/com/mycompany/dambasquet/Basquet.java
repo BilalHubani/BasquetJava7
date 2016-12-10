@@ -154,13 +154,13 @@ public class Basquet {
         int mes = 0;
         int ano = 0;
         do {
-            dia = EntradaDatos.pedirEntero("Dia de nacimiento");
+            dia = EntradaDatos.pedirEntero("Dia de la creacion");
         }while(dia<1 || dia > 31);
         do {
-            mes = EntradaDatos.pedirEntero("Mes de nacimiento");
+            mes = EntradaDatos.pedirEntero("Mes de la creacion");
         }while (mes<1 || mes>12);
         do {
-            ano = EntradaDatos.pedirEntero("Año de nacimiento");
+            ano = EntradaDatos.pedirEntero("Año de de la creacion");
         }while (ano<1 || ano>2016);
         creacion = new Date(ano,mes,dia);
         Equipo equipo = new Equipo(id, nombre,localidad,creacion);
@@ -199,7 +199,8 @@ public class Basquet {
                 ano = EntradaDatos.pedirEntero("Año de la creacion");
             }while (ano<1 || ano>2016);
             nacimiento = new Date(ano,mes,dia);
-            Jugador jugador = new Jugador(id,nombre,nacimiento,(int) Math.random()*30, (int) Math.random()*30,(int) Math.random()*30, posicion);
+            Jugador jugador = new Jugador(id,nombre,nacimiento,(int) (Math.random()*30), (int) (Math.random()*30),(int) (Math.random()*30), posicion);
+            System.out.println(jugador);
             equipo.getListaJugadores().altaJugador(jugador);
             ficheroEquipos.grabar(listaEquipos);
             System.out.println("Jugador dado de alta");

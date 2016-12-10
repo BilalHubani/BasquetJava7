@@ -61,4 +61,13 @@ public class Equipo {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "Equipo{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", localidad='" + localidad + '\'' +
+                ", creacion=" + creacion +
+                "}\n";
+    }
 }

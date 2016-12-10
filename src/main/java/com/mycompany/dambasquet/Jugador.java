@@ -84,5 +84,16 @@ public class Jugador {
         return id;
     }
 
- 
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", nacimiento=" + nacimiento +
+                ", canastas=" + canastas +
+                ", rebote=" + rebote +
+                ", asistencias=" + asistencias +
+                ", posicion='" + posicion + '\'' +
+                "}\n";
+    }
 }
